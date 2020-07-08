@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example 1</title>
+    
+    <style>
+    	.clearfix:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+
+        a {
+          color: #5D6975;
+          text-decoration: underline;
+        }
+        
+        body {
+          position: relative;
+          margin: 0 auto; 
+          color: #001028;
+          background: #FFFFFF; 
+          font-family: Arial, sans-serif; 
+          font-size: 12px; 
+          font-family: Arial;
+        }
+
+        header {
+          padding: 30px 0;
+          margin-bottom: 30px;
+        }
+        
+        h1 {
+          border-bottom: 1px solid  #5D6975;
+          color: #5D6975;
+          font-size: 2.4em;
+          line-height: 1.4em;
+          font-weight: normal;
+          text-align: center;
+          margin: 0;
+        }
+        
+        .header-description {
+          margin-bottom: 20px;
+          padding-top: 10px;
+          text-align: center;
+        }
+        
+        .header-description div {
+          margin: 0px;
+        }
+        
+        .header-description span {
+          color: #5D6975;
+          margin-right: px;
+        }
+        
+        #project {
+          float: left;
+        }
+
+        #project span {
+          color: #5D6975;
+          text-align: right;
+          width: 52px;
+          margin-right: 10px;
+          display: inline-block;
+          font-size: 0.8em;
+        }
+
+        #company {
+          float: right;
+          text-align: right;
+        }
+        
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          border-spacing: 0;
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+        
+        .table-row-style  {
+          background-color: #F5F5F5;
+          border-bottom: 1px solid #C1CED9;
+        }
+        
+        table th {
+          padding: 5px 20px;
+          color: #5D6975;
+          border-bottom: 1px solid #C1CED9;
+          white-space: nowrap;        
+          font-weight: normal;
+        }
+        
+        table .service,
+        table .desc {
+          text-align: left;
+        }
+
+        table td {
+          padding: 5px;
+          text-align: right;
+          font-size: 10px;
+        }
+
+        table td.service,
+        table td.desc {
+          vertical-align: top;
+        }
+        
+        table td.qty,
+        table td.total {
+          font-size: 12px;
+        }
+
+        table td.grand {
+          border-top: 1px solid #5D6975;;
+        }
+    </style>
+  </head>
+  
+  <body>
+    <header class="clearfix">
+      <h1>INVOICE {{user_details.invoice_number}}</h1>
+      <div class="header-description">
+      	<div>Invoice for {{user_details.invoice_month_year}}</div>
+        <div><span>Invoice Date: </span>{{user_details.invoice_date}}</div>
+      </div>
+      
+      <div id="company" class="clearfix">
+        <div>{{user_details.fullname}}</div>
+        <div>{{user_details.address}}, {{user_details.city}}<br /> {{user_details.state}}, {{user_details.country}}</div>
+        <div>{{user_details.phone}}</div>
+        <div><a>{{user_details.email}}</a></div>
+      </div>
+      <div id="project">
+        <div>Code Institue</div>
+        <div>1st Floor, Block 8</div>
+        <div>Blackrock Business Park,</div>
+        <div>Carysfort Ave,</div>
+        <div>Blackrock, Co Dublin</div>
+      </div>
+    </header>
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th class="service">No.</th>
+            <th class="desc">Student</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for data in monthly_report.details %}
+                <tr class="table-row-style">
+                    <td class="service">{{loop.index}}</td>
+                    <td class="desc">{{data.student_name}}</td>
+                    <td class="unit">{{data.duration}}</td>
+                </tr>
+            {% endfor %}
+          <tr>
+            <td colspan="2">TOTAL DURATION</td>
+            <td class="total">{{monthly_report.aggregates.total_session_time}}</td>
+          </tr>
+          <tr>
+            <td colspan="2">HOURLY FEE</td>
+            <td class="total">€ 50</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="grand total">TOTAL AMOUNT</td>
+            <td class="grand total">{{monthly_report.aggregates.euros_billable}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>

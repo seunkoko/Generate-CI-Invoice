@@ -1,0 +1,6 @@
+.env
+generate-invoice-env/
+.DS_Store
+*.pdf
+__pycache__/
+*.pyc
