@@ -158,7 +158,7 @@
             {% for data in monthly_report.details %}
                 <tr class="table-row-style">
                     <td class="service">{{loop.index}}</td>
-                    <td class="desc">{{data.student_name}}</td>
+                    <td class="desc">{{data.student_email}}</td>
                     <td class="unit">{{data.duration}}</td>
                 </tr>
             {% endfor %}

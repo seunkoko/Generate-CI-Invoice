@@ -4,3 +4,4 @@ generate-invoice-env/
 *.pdf
 __pycache__/
 *.pyc
+our_info.txt
