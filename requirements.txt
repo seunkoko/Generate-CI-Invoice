@@ -6,7 +6,7 @@ Flask==1.1.2
 html5lib==1.1
 idna==2.10
 itsdangerous==1.1.0
-Jinja2==2.11.2
+Jinja2==2.11.3
 MarkupSafe==1.1.1
 mimerender==0.6.0
 Pillow==7.2.0
