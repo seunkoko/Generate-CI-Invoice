@@ -10,7 +10,7 @@ Jinja2==2.11.2
 MarkupSafe==1.1.1
 mimerender==0.6.0
 Pillow==7.2.0
-PyPDF2==1.26.0
+PyPDF2==1.27.5
 python-dotenv==0.14.0
 python-mimeparse==1.6.0
 pytz==2020.1
